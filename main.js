@@ -1,0 +1,1 @@
+const Hello =require('./hello.jsx');
