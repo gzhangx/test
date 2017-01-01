@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.14.0",
+    "rc-menu": "^5.0.8",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
