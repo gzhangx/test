@@ -28,15 +28,6 @@ class MainPage extends React.Component {
         return <DataProvider state={this.state} api={api}>
             <div>
                 <Menu menuChange={this.menuChanged}></Menu>
-                <Router history={browserHistory}>
-                    <Route path="/" component={NoCmp('default')}>
-                        <Route path="/login" component={NoCmp('login')}/>
-                        <Route path="/users" component={NoCmp('users')}>
-                            <Route path="/user/:userId" component={NoCmp('usersid')}/>
-                        </Route>
-                        <Route path="*" component={NoCmp('star')}/>
-                    </Route>
-                </Router>
                 <div>{this.state.name}</div>
                 <ul>
                 {
@@ -45,12 +36,17 @@ class MainPage extends React.Component {
                     )
                 }
                 </ul>
+                <Link  to='login'>Login</Link>
             </div>
         </DataProvider>;
     }
 }
 
-render(<MainPage/>
+render(<Router history={browserHistory}>
+        <Route path="/" component={MainPage}>
+            <Route path="login" component={NoCmp('loginroute')}/>
+        </Route>
+    </Router>
     , document.getElementById('root'));
 
 

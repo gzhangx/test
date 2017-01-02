@@ -4,6 +4,8 @@ var webpack = require('webpack');
 module.exports = {
     entry: ['babel-polyfill', './main.js'],
     output: { path: __dirname, filename: 'dist/bundle.js' },
+    debug: true,
+    devtool: "#eval-source-map",
     module: {
         loaders: [
             {
