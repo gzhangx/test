@@ -37,6 +37,7 @@ class MainPage extends React.Component {
                 }
                 </ul>
                 <Link  to='login'>Login</Link>
+                {this.props.children}
             </div>
         </DataProvider>;
     }
