@@ -4,6 +4,7 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 import Menu from './components/topmenu/index.jsx';
 import DataProvider from './DataProvider.jsx';
 import api from './api.js';
+import Login from './components/login/index.jsx';
 
 function NoCmp(data) {
     return ()=><div>{data || 'NoCmp'}</div>
@@ -48,7 +49,7 @@ class MainPage extends React.Component {
 
 render(<Router history={browserHistory}>
         <Route path="/" component={MainPage}>
-            <Route path="login" component={NoCmp('loginroute')}/>
+            <Route path="login" component={Login}/>
         </Route>
     </Router>
     , document.getElementById('root'));
