@@ -20,6 +20,9 @@ class MainPage extends React.Component {
     menuChanged(val) {
         browserHistory.push('/'+val.key);
         this.setState({name: val.key});
+        if (val.key == 'login') {
+            this.setState({readList: null});
+        }else
         api.getReadList().then(res=> {
            this.setState({readList: res.data});
         });
