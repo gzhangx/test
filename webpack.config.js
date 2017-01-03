@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: ['babel-polyfill', './main.js'],
+    entry: ['babel-polyfill', './client/main.js'],
     output: { path: __dirname, filename: 'dist/bundle.js' },
     debug: true,
     devtool: "#eval-source-map",
