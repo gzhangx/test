@@ -31,7 +31,7 @@ class MainPage extends React.Component {
             this.setState({readList: null});
         }else
         api.getReadList().then(res=> {
-           this.setState({readList: res.data});
+           this.setState({readList: res.data.curweek});
         });
     }
     route(urlHash) {
@@ -42,7 +42,7 @@ class MainPage extends React.Component {
                 return <ul>
                     {
                         this.state.readList && this.state.readList.map(l=>
-                            <li>{l.title}</li>
+                            <li>{l}</li>
                         )
                     }
                 </ul>;
