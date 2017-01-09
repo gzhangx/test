@@ -63,10 +63,14 @@ function schedule() {
 
     function getSchedule(selSch) {
         const start = Math.floor(selSch.ScheduleStartDay / 7 / 13) * 13;
+        const curScheduleBlk = schedule.schedule.slice(start + 1, start + 1 + 13).map(a=>a.slice(1));
+        const curDay = selSch.CurDay %7;
+        const curWeek = selSch.CurWeek;
         return {
-            schedule : schedule.schedule.slice(start + 1, start + 1 + 13).map(a=>a.slice(1)),
-            curWeek : selSch.CurWeek,
-            curDay: selSch.CurDay %7
+            schedule : curScheduleBlk,
+            curWeek,
+            curDay,
+            curWeekView: curScheduleBlk[curWeek].map((verse,idx)=>({ verse, date: getDay(selSch.CurDate, idx - curDay), isToday: curDay == idx }))
         };
     }
 
