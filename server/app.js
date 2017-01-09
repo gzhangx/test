@@ -6,7 +6,7 @@ app.use(express.static('dist'));
 const bibleSchedule = require('./bibleSchedule/init');
 bibleSchedule.setup(app);
 
-const test = require('./bibleSchedule/scheduleCalcNew');
+const test = require('./bibleSchedule/scheduleCalcLib');
 const res = test.schedule.getScheduleByOffset(new Date(), 0);
 console.log(res);
 
