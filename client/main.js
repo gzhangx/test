@@ -5,7 +5,7 @@ import Menu from './components/topmenu/index.jsx';
 import DataProvider from './DataProvider.jsx';
 import api from './api.js';
 import Login from './components/login/index.jsx';
-
+import versesCell from './components/curDayDisp/index.jsx';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class MainPage extends React.Component {
         api.getReadList().then(res=> {
             console.log('got res for consturctor api get');
             console.log(res);
-            this.setState({schedule: res.data.schedule});
+            this.setState({schedule: res.data});
         });
     }
 
@@ -36,7 +36,7 @@ class MainPage extends React.Component {
             this.setState({readList: null});
         }else
         api.getReadList().then(res=> {
-           this.setState({schedule: res.data.schedule});
+           this.setState({schedule: res.data});
         });
     }
     route(urlHash) {
@@ -46,9 +46,9 @@ class MainPage extends React.Component {
             default:
                 return <table><tbody>
                     {
-                        this.state.schedule && this.state.schedule.map((l,i)=>
+                        this.state.schedule && this.state.schedule.schedule.map((l,i)=>
                             <tr key={i}>{l.map((r,j)=>
-                                <td key={j}>{r}</td>
+                                <td key={j}>{versesCell(i,j,this.state.schedule)}</td>
                             )}</tr>
                         )
                     }
