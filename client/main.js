@@ -21,7 +21,7 @@ class MainPage extends React.Component {
         api.getReadList().then(res=> {
             console.log('got res for consturctor api get');
             console.log(res);
-            this.setState({readList: res.data.curweek});
+            this.setState({schedule: res.data.schedule});
         });
     }
 
@@ -36,7 +36,7 @@ class MainPage extends React.Component {
             this.setState({readList: null});
         }else
         api.getReadList().then(res=> {
-           this.setState({readList: res.data.curweek});
+           this.setState({schedule: res.data.schedule});
         });
     }
     route(urlHash) {
@@ -44,13 +44,15 @@ class MainPage extends React.Component {
             case 'login':
                 return <Login/>;
             default:
-                return <ul>
+                return <table><tbody>
                     {
-                        this.state.readList && this.state.readList.map(l=>
-                            <li>{l}</li>
+                        this.state.schedule && this.state.schedule.map((l,i)=>
+                            <tr key={i}>{l.map((r,j)=>
+                                <td key={j}>{r}</td>
+                            )}</tr>
                         )
                     }
-                </ul>;
+                </tbody></table>;
         }
     }
 
