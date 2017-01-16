@@ -18,6 +18,11 @@ class MainPage extends React.Component {
         this.state = {
             name: 'state name'
         }
+        api.getReadList().then(res=> {
+            console.log('got res for consturctor api get');
+            console.log(res);
+            this.setState({readList: res.data.curweek});
+        });
     }
 
     menuChanged(val) {

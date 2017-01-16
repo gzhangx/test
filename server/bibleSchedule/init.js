@@ -1,7 +1,7 @@
 
 const calcLib = require('./scheduleCalcLib');
 const curSchedule = calcLib.schedule.getScheduleByOffset(new Date(), 0);
-console.log(curSchedule);
+//console.log(curSchedule);
 const reduce = require('lodash/reduce');
 
 function convertWeek(which) {
@@ -22,6 +22,9 @@ function setupRoutes(app) {
         curSchedule.curWeekView.map((r, i)=>{ str = `${str}${r.date.substr(5)}(${convertWeek(i)}) ${r.verse}<br>` });
         res.send(200, str);
     });
+    app.get('/schedule',(req,res)=> {
+        res.jsonp(curSchedule);
+    })
 }
 
 module.exports = {

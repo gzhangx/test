@@ -27,7 +27,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --progress --colors && cp client/index.html dist && node server/app",
-    "build": "webpack --progress --colors && cp client/index.html dist"
+    "build": "node_modules/.bin/webpack --progress -p && cp client/index.html dist"
+
   },
   "repository": {
     "type": "git",

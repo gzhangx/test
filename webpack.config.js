@@ -5,7 +5,8 @@ module.exports = {
     entry: ['babel-polyfill', './client/main.js'],
     output: { path: __dirname, filename: 'dist/bundle.js' },
     debug: true,
-    devtool: "#eval-source-map",
+    devtooldev: "#eval-source-map",
+    devtool: "cheap-module-source-map",
     module: {
         loaders: [
             {
