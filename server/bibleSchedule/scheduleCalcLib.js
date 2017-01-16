@@ -68,7 +68,7 @@ function schedule() {
         const curWeek = selSch.CurWeek;
         return {
             schedule : curScheduleBlk,
-            curWeek,
+            curWeek : curWeek - 1,
             curDay,
             curWeekView: curScheduleBlk[curWeek].map((verse,idx)=>({ verse, date: getDay(selSch.CurDate, idx - curDay), isToday: curDay == idx }))
         };
