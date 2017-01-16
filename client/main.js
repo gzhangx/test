@@ -6,6 +6,7 @@ import DataProvider from './DataProvider.jsx';
 import api from './api.js';
 import Login from './components/login/index.jsx';
 import versesCell from './components/curDayDisp/index.jsx';
+import recordVerses from './components/recordVerses/index.jsx';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -43,6 +44,8 @@ class MainPage extends React.Component {
         switch (urlHash) {
             case 'login':
                 return <Login/>;
+            case 'recordVerses':
+                return <recordVerses/>;
             default:
                 return <table><tbody>
                     {
