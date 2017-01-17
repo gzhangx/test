@@ -6,8 +6,8 @@ import DataProvider from './DataProvider.jsx';
 import api from './api.js';
 import Login from './components/login/index.jsx';
 import versesCell from './components/curDayDisp/index.jsx';
-import recordVerses from './components/recordVerses/index.jsx';
-
+import RecordVerses from './components/recordVerses/index.jsx';
+import get from 'lodash/get'
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
@@ -16,8 +16,11 @@ class MainPage extends React.Component {
             console.log(location);
         });
         this.menuChanged = this.menuChanged.bind(this);
+        let pathname = get(this.history,'location.pathname');
+        if (pathname) pathname = pathname.substring(1);
         this.state = {
-            name: 'state name'
+            name: 'state name',
+            pathname
         }
         api.getReadList().then(res=> {
             console.log('got res for consturctor api get');
@@ -45,7 +48,7 @@ class MainPage extends React.Component {
             case 'login':
                 return <Login/>;
             case 'recordVerses':
-                return <recordVerses/>;
+                return <RecordVerses/>;
             default:
                 return <table><tbody>
                     {

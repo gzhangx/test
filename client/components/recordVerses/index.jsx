@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../form/index.jsx';
 
-function recordVerses1(email,verse, group) {
+function RecordVerses1() {
     return <Form formFields={
         [
             {id: 'email', text: 'Email'},
@@ -11,7 +11,7 @@ function recordVerses1(email,verse, group) {
 }
 
 
-function recordVerses(email,verse, group) {
+function RecordVerses() {
     return <div>testtest</div>;
 }
-export default recordVerses;
+export default RecordVerses1;

@@ -5,8 +5,10 @@ import get from 'lodash/get';
 //function textRender(state, item, setState){
 //    return <input type="text" id={item.id} value={get(state, item.path)} onChange={evt=>setState(item.path, evt.target.value)} />
 //}
+
 /*
-class Form extends React.ReactComponent {
+
+class Form1 extends React.ReactComponent {
     constructor(props) {
         super(props);
         this.state = props.initialState || {};
@@ -24,6 +26,9 @@ class Form extends React.ReactComponent {
         </table>;
     }
 }
+*/
 
+function Form() {
+    return <div>testtest form</div>
+}
 export default Form;
-    */
